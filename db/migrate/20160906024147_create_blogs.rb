@@ -4,6 +4,7 @@ class CreateBlogs < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.string :title
       t.text :content
+      t.string :slug
 
       t.timestamps null: false
     end
