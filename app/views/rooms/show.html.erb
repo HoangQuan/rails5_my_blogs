@@ -1,0 +1,8 @@
+<h2> <%= room.name %></h2>
+
+<div>
+  <% room.messages.each do |message| %>
+    <b><%= message.content %></b>
+    <hr />
+  <% end %>
+</div>
