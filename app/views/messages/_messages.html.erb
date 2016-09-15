@@ -1,0 +1,18 @@
+<section id="messages" data-channel="messages" data-room-id="<%= room.id %>">
+  <%= render room.messages %>
+</section>
+
+Send message:
+<%= render 'messages/new', room: room %>
+<style type="text/css">
+#messages {
+    width: 590px;
+    height: 450px;
+    overflow: scroll;
+}
+.message_1 {
+	text-align: right;
+    padding: 5px;
+    background-color: #607D8B;
+}
+</style>

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :blogs
   resources :rooms
+  resources :messages
 end

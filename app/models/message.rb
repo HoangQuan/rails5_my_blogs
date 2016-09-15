@@ -4,5 +4,6 @@ class Message < ApplicationRecord
   belongs_to :room
   validates :content, :user_id, :room_id, presence: true
 
-  after_commit { MessageRelayJob.perform_later(self) }
+  after_commit { ActionCable.server.broadcast "room_#{room_id}_messages",
+      message: MessagesController.render(partial: 'messages/message', locals: { message: self }) }
 end

@@ -1,0 +1,3 @@
+// $('#messages').append('<%=j render @message %>');
+$('#new_message').replaceWith('<%=j render 'messages/new', room: @room %>');
+$('#message_content').focus();

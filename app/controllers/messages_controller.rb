@@ -1,12 +1,12 @@
-class CommentsController < ApplicationController
-  before_action :set_message
+class MessagesController < ApplicationController
+  before_action :set_room
 
   def create
-    @comment = Comment.create! content: params[:comment][:content], room_id: params[:comment][:room_id], user: 1
+    @message = Message.create! content: params[:message][:content], room: @room, user_id: [1,2].sample
   end
 
   private
-  def set_message
-    @message = Message.find(params[:message_id])
+  def set_room
+    @room = Room.find(params[:message][:room_id])
   end
 end

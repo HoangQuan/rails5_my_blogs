@@ -1,0 +1,4 @@
+<article data-user-id="<%= message.user_id %>" class="message_<%=message.user_id%>">
+  <b><%= message.content %></b>
+  <p><%= message.updated_at.strftime('%Y-%m-%d at %H:%M') %></p>
+</article>

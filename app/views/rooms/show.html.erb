@@ -1,8 +1,31 @@
-<h2> <%= room.name %></h2>
+<h2> <%= @room.name %></h2>
 
-<div>
-  <% room.messages.each do |message| %>
+<!-- <div>
+  <% @room.messages.each do |message| %>
     <b><%= message.content %></b>
     <hr />
   <% end %>
+</div> -->
+<%= render 'messages/messages', room: @room %>
+
+<div>
+  <% ConnectedList.all.each do |id| %>
+    <li>user_<%= id %></li>
+  <% end %>
 </div>
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    var objDiv = document.getElementById("messages");
+  objDiv.scrollTop = objDiv.scrollHeight;
+
+  $(document).on('keypress', '#new_message', function(event) {
+    if (event.keyCode === 13) {
+        $('#new_message').submit();
+        $('#message_content').focus;
+        event.target.value = '';
+        return event.preventDefault();
+      }
+    });
+  });
+  
+</script>
